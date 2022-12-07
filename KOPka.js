@@ -33,7 +33,6 @@ function jeVstupSpravny(idVstup, idError) {
  */
 
 function PohonneLatky() {
-  // skusobny pridany riadok
   const ID_ROCNA_JAZDA = "#idVypocitanyPHL";
   const ID_JEDNOTKOVA_JAZDA = "#idVypocitanyPHLjednotkove";
 
