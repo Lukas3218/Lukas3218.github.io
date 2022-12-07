@@ -1,0 +1,20 @@
+#wrapper {
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+}
+
+
+.medzera10 {
+    margin-top: 10px;
+}
+
+.medzera20{
+    margin-top: 20px;
+}
+
+form {
+    border-style: solid;
+    width: fit-content;
+    padding: 15px;
+}
