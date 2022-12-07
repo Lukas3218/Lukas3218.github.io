@@ -1,0 +1,598 @@
+<html>
+  <head>
+    <script src="KOPka.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+      integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="KOPka.css" />
+  </head>
+
+  <main>
+    <form id="formular">
+      <div id="ohranicenie1" class="zarovnanie-stred">
+        <div class="vstup-tlacidlo">
+          <div class="vstup">
+            <span class="popis">rocny jazdny vykon:</span>
+            <input id="idRJV" type="float" required />
+            <span class="jednotka">[km]</span>
+            <div></div>
+            <div class="error-sprava" id="idErrorRJV"></div>
+          </div>
+        </div>
+
+        <div class="vstup-tlacidlo">
+          <div class="vstup">
+            <span class="popis">pocet hodin prestojov za rok:</span>
+            <input id="idPZR" type="float" required />
+            <span class="jednotka">[hod]</span>
+            <div></div>
+            <div class="error-sprava" id="idErrorPZR"></div>
+          </div>
+        </div>
+
+        <div class="vstup-tlacidlo">
+          <div class="vstup">
+            <span class="popis">percento jazdy za rok v desatinnom tvare:</span>
+            <input id="idPRJV" type="float" required/>
+            <span class="jednotka"></span>
+            <div></div>
+            <div class="error-sprava" id="idErrorPRJV"></div>
+          </div>
+        </div>
+
+        <div class="vstup-tlacidlo">
+          <div class="vstup">
+            <span class="popis"
+              >percento prestojov za rok v desatinnom tvare:</span
+            >
+            <input id="idPPZR" type="float" required />
+            <span class="jednotka"></span>
+            <div></div>
+            <div class="error-sprava" id="idErrorPPZR"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="variabilne-naklady">
+        <h1>Variabilne naklady</h1>
+        <div class="ohranicenie2">
+          <div class="stlpec stlpec-vstupov">
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">cenu pohonnych hmot:</span>
+                <input id="idPHL" type="float" required />
+                <span class="jednotka">[€/l]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorPHL"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">spotrebu vozidla:</span>
+                <input id="idSV" type="float" required />
+                <span class="jednotka">[l/km]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorSV"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajPHL"
+                  onclick="PohonneLatky()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">cenu motoroveho oleja:</span>
+                <input id="idCMO" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorCMO"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">objem motoroveho oleja:</span>
+                <input id="idOMO" type="float" required />
+                <span class="jednotka">[l]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorOMO"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">zivotnost motoroveho oleja:</span>
+                <input id="idZMO" type="float" required />
+                <span class="jednotka">[km]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorZMO"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">spotrebu motoroveho oleja:</span>
+                <input id="idSMO" type="float" required />
+                <span class="jednotka">[l]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorSMO"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajMO"
+                  onclick="MotorovyOlej()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">zivotnost prevodovky:</span>
+                <input id="idZP" type="float" required />
+                <span class="jednotka">[km]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorZP"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">zivotnost diferencialu:</span>
+                <input id="idZD" type="float" required />
+                <span class="jednotka">[km]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorZD"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">spotrebu prevodoveho oleja:</span>
+                <input id="idSPO" type="float" required />
+                <span class="jednotka">[l]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorSPO"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">objem prevodoveho oleja:</span>
+                <input id="idOPO" type="float" required />
+                <span class="jednotka">[l]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorOPO"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">cenu prevodoveho oleja:</span>
+                <input id="idCPO" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorCPO"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajPO"
+                  onclick="PrevodovyOlej()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">pocet pneumatik:</span>
+                <input id="idPKP" type="float" required />
+                <span class="jednotka">[ks]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorPKP"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">cenu kusu pneumatiky:</span>
+                <input id="idCKP" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorCKP"></div>
+              </div>
+
+              <div class="vstup">
+                <span class="popis">zivotnost pneumatiky:</span>
+                <input id="idZPn" type="float" required />
+                <span class="jednotka">[km]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorZPn"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajPn"
+                  onclick="Pneumatiky()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">rocne naklady na udrzbu:</span>
+                <input id="idRNU" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorRNU"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajUdr"
+                  onclick="Udrzba()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">rocne naklady na opravy:</span>
+                <input id="idRNO" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorRNO"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajOPR"
+                  onclick="Opravy()"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixne-naklady">
+        <h1>Fixne naklady</h1>
+        <div class="ohranicenie2">
+          <div class="stlpec stlpec-vstupov">
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">rocnu mzdu osadky:</span>
+                <input id="idMZD" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorMZD"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajMZD"
+                  onclick="MzdaOsadky()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">vysku PZP:</span>
+                <input id="idPZP" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorPZP"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajPZP"
+                  onclick="PovinneZmluvnePoistenie()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">vysku dane z motoroveho vozidla:</span>
+                <input id="idDMV" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorDMV"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajDMV"
+                  onclick="DanMotorovehoVozidla()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">vysku CMR poistenia:</span>
+                <input id="idCMR" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorCMR"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajCMR"
+                  onclick="CMRPoistenie()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">vysku havrijneho poistenia:</span>
+                <input id="idHP" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorHP"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajHP"
+                  onclick="HavarijnePoistenie()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">vysku rocnych rezijnych nakladov:</span>
+                <input id="idRN" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorRN"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajRN"
+                  onclick="RezijneNaklady()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">vysku rocneho odpisu:</span>
+                <input id="idODP" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorODP"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajODP"
+                  onclick="Odpis()"
+                />
+              </div>
+            </div>
+
+            <div class="vstup-tlacidlo">
+              <div class="vstup">
+                <span class="popis">vysku rocneho cestovneho:</span>
+                <input id="idVRD" type="float" required />
+                <span class="jednotka">[€]</span>
+                <div></div>
+                <div class="error-sprava" id="idErrorVRD"></div>
+              </div>
+
+              <div class="tlacidlo-vypocitaj">
+                <div></div>
+                <input
+                  class="medzera10"
+                  type="button"
+                  value="VypocitajVRD"
+                  onclick="Diety()"
+                />
+              </div>
+            </div>
+            <div class="tlacidlo-vypocitaj">
+              <div></div>
+              <input
+                class="medzera10"
+                type="button"
+                value="Vypocitaj spolu"
+                onclick="RocnaJazdaSpolu()"
+              />
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="stlpec stlpec-vysledkov">
+      <table>
+        <tr>
+          <th rowspan="2">P.Č</th>
+          <th rowspan="2">Nakladova polozka</th>
+          <th colspan="2">Rocne naklady [N]</th>
+          <th colspan="2">Jednotkove naklady [n]</th>
+        </tr>
+        <tr>
+          <th>N jazda</th>
+          <th>N prestoj</th>
+          <th>n jazda</th>
+          <th>n prestoj</th>
+        </tr>
+        <tr>
+          <td></td>
+          <th>VARIABILNE NAKLADY</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">1</td>
+          <td class="nakladova-polozka">Pohonne latky</td>
+          <td class="bunka-vysledku" id="idVypocitanyPHL"></td>
+          <td class="bunka-vysledku">-</td>
+          <td class="bunka-vysledku" id="idVypocitanyPHLjednotkove"></td>
+          <td class="bunka-vysledku">-</td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">2</td>
+          <td class="nakladova-polozka">Motorovy olej</td>
+          <td class="bunka-vysledku" id="idVypocitanyMO"></td>
+          <td class="bunka-vysledku">-</td>
+          <td class="bunka-vysledku" id="idVypocitanyMOjednotkove"></td>
+          <td class="bunka-vysledku">-</td>
+        </tr>
+
+        <tr>
+          <td class="poradove-cislo">3</td>
+          <td class="nakladova-polozka">Prevodovy olej</td>
+          <td class="bunka-vysledku" id="idVypocitanyPO"></td>
+          <td class="bunka-vysledku">-</td>
+          <td class="bunka-vysledku" id="idVypocitanyPOjednotkove"></td>
+          <td class="bunka-vysledku">-</td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">4</td>
+          <td class="nakladova-polozka">Pneumatiky</td>
+          <td class="bunka-vysledku" id="idVypocitanyPn"></td>
+          <td class="bunka-vysledku">-</td>
+          <td class="bunka-vysledku" id="idVypocitanyPnjednotkove"></td>
+          <td class="bunka-vysledku">-</td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">5</td>
+          <td class="nakladova-polozka">Udrzba</td>
+          <td class="bunka-vysledku" id="idVypocitanyRNU"></td>
+          <td class="bunka-vysledku">-</td>
+          <td class="bunka-vysledku" id="idVypocitanyRNUjednotkove"></td>
+          <td class="bunka-vysledku">-</td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">6</td>
+          <td class="nakladova-polozka">Opravy</td>
+          <td class="bunka-vysledku" id="idVypocitanyRNO"></td>
+          <td class="bunka-vysledku">-</td>
+          <td class="bunka-vysledku" id="idVypocitanyRNOjednotkove"></td>
+          <td class="bunka-vysledku">-</td>
+        </tr>
+        <tr>
+          <td></td>
+          <th>FIXNE NAKLADY</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">7</td>
+          <td class="nakladova-polozka">Mzda osadky</td>
+          <td class="bunka-vysledku" id="idVypocitanyMZD"></td>
+          <td class="bunka-vysledku" id="idVypocitanyMZD2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyMZDjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyMZDjednotkove2"></td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">8</td>
+          <td class="nakladova-polozka">Povinne zmluvne poistenie</td>
+          <td class="bunka-vysledku" id="idVypocitanyPZP"></td>
+          <td class="bunka-vysledku" id="idVypocitanyPZP2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyPZPjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyPZPjednotkove2"></td>
+        </tr>
+
+        <tr>
+          <td class="poradove-cislo">9</td>
+          <td class="nakladova-polozka">Dan z motoroveho vozidla</td>
+          <td class="bunka-vysledku" id="idVypocitanyDMV"></td>
+          <td class="bunka-vysledku" id="idVypocitanyDMV2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyDMVjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyDMVjednotkove2"></td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">10</td>
+          <td class="nakladova-polozka">CMR poistenie</td>
+          <td class="bunka-vysledku" id="idVypocitanyCMR"></td>
+          <td class="bunka-vysledku" id="idVypocitanyCMR2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyCMRjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyCMRjednotkove2"></td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">11</td>
+          <td class="nakladova-polozka">Havarijne poistenie</td>
+          <td class="bunka-vysledku" id="idVypocitanyHP"></td>
+          <td class="bunka-vysledku" id="idVypocitanyHP2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyHPjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyHPjednotkove2"></td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">12</td>
+          <td class="nakladova-polozka">Rezijne naklady</td>
+          <td class="bunka-vysledku" id="idVypocitanyRN"></td>
+          <td class="bunka-vysledku" id="idVypocitanyRN2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyRNjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyRNjednotkove2"></td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">13</td>
+          <td class="nakladova-polozka">Odpis</td>
+          <td class="bunka-vysledku" id="idVypocitanyODP"></td>
+          <td class="bunka-vysledku" id="idVypocitanyODP2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyODPjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyODPjednotkove2"></td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo">14</td>
+          <td class="nakladova-polozka">Cestovne</td>
+          <td class="bunka-vysledku" id="idVypocitanyVRD"></td>
+          <td class="bunka-vysledku" id="idVypocitanyVRD2"></td>
+          <td class="bunka-vysledku" id="idVypocitanyVRDjednotkove"></td>
+          <td class="bunka-vysledku" id="idVypocitanyVRDjednotkove2"></td>
+        </tr>
+        <tr>
+          <td class="poradove-cislo"></td>
+          <th class="nakladova-polozka">SPOLU</th>
+          <td id="idVysledokRocnaJazdaSpolu"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </main>
+</html>
