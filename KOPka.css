@@ -1,20 +1,149 @@
-#wrapper {
-    text-align: center;
-    margin: auto;
-    width: fit-content;
+body {
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+.zarovnanie-stred {
+  margin: auto;
+  width: fit-content;
+}
+
+input[type="button"] {
+  width: 125px;
+}
+
+#idVypocitany {
+  font-weight: bold;
+}
+
+#ohranicenie1 {
+  border-style: double;
+  border-width: 10px;
+  padding: 15px;
+  text-align: left;
+}
+
+.ohranicenie2 {
+  /* display: grid;
+  grid-template-columns: 6fr 6fr; */
+}
+
+main {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+}
+
+#formular,
+.stlpec-vysledkov {
+  display: inline-block;
+  margin: 0;
+  padding: 0 15px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.variabilne-naklady,
+.fixne-naklady {
+  margin: 20px 0 20px 0;
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    display: grid;
+    grid-template-columns: unset;
+  }
+
+  #formular,
+  .stlpec-vysledkov {
+    overflow-y: auto;
+    height: unset;
+  }
+}
+
+.stlpec-vstupov {
+  padding: 15px 2px 15px 10px;
+  border: 2px solid lightgrey;
+}
+
+.stlpec-vysledkov {
+  /* border-left: solid 1px black; */
+}
+
+.vstup-tlacidlo {
+  margin-bottom: 25px;
+}
+
+.tlacidlo-vypocitaj {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+}
+
+.vstup {
+  display: grid;
+  grid-template-columns: 5fr 6fr 1fr;
+  margin-bottom: 5px;
+}
+
+.chybny-vstup {
+  border: 2px solid red;
+}
+
+.error-sprava {
+  color: red;
+  font-size: small;
+}
+
+.popis {
+  /* justify-self: end; */
+}
+
+.jednotka {
+  justify-self: center;
+}
 
 .medzera10 {
-    margin-top: 10px;
+  margin-top: 5px;
 }
 
-.medzera20{
-    margin-top: 20px;
+.nadpis {
+  font-weight: 900;
+  font-size: 150%;
 }
 
-form {
-    border-style: solid;
-    width: fit-content;
-    padding: 15px;
+/* Tabulka ================================================== */
+table {
+  width: 100%;
+  /* table-layout: fixed; */
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px 2px;
+}
+
+td {
+  text-align: center;
+}
+
+.nakladova-polozka {
+  width: 35%;
+}
+
+.poradove-cislo {
+  width: 5%;
+}
+
+.bunka-vysledku {
+  width: 15%;
+}
+
+/* td:not(.poradove-cislo) {
+  width: 15%;
+} */
