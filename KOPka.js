@@ -779,8 +779,15 @@ function RocnaJazdaSpolu() {
   const vysledokRNU = parseFloat($("#idVypocitanyRNU").text());
   const vysledokRNO = parseFloat($("#idVypocitanyRNO").text());
   const vysledokMZD = parseFloat($("#idVypocitanyMZD").text());
+  const vysledokPZP = parseFloat($("#idVypocitanyPZP").text());
+  const vysledokDMV = parseFloat($("#idVypocitanyDMV").text());
+  const vysledokCMR = parseFloat($("#idVypocitanyCMR").text());
+  const vysledokHP = parseFloat($("#idVypocitanyHP").text());
+  const vysledokRN = parseFloat($("#idVypocitanyRN").text());
+  const vysledokODP = parseFloat($("#idVypocitanyODP").text());
+  const vysledokVRD = parseFloat($("#idVypocitanyVRD").text());
 
-  // vzorce na vypocet vysledku
+  // vzorec na vypocet vysledku
   const vysledokRocnaJazdaSpolu = parseFloat(
     vysledokPHL +
       vysledokMO +
@@ -788,10 +795,176 @@ function RocnaJazdaSpolu() {
       vysledokPn +
       vysledokRNU +
       vysledokRNO +
-      vysledokMZD
+      vysledokMZD +
+      vysledokPZP +
+      vysledokDMV +
+      vysledokCMR +
+      vysledokHP +
+      vysledokRN +
+      vysledokODP +
+      vysledokVRD
   );
 
   // zapisanie vysledku
 
-  $(ID_ROCNA_JAZDA).text(Math.round(vysledokRocnaJazdaSpolu * 10000) / 10000);
+  $(ID_ROCNA_JAZDA).text(Math.round(vysledokRocnaJazdaSpolu * 100) / 100);
+}
+
+/** Rocne naklady na jednotkovu jazdu spolu ==============================================================================
+ * Pre vypocet potrebujeme:
+ * - vysledky jednotkovych fixnych a jednotkovych variabilnych nakladov na jazdu
+ * @returns vyska jednotkovych fixnych a jednotkovych variabilnych nakladov na jazdu spolu
+ */
+function JednotkovaJazdaSpolu() {
+  const ID_JEDNOTKOVA_JAZDA = "#idVysledokJednotkovaJazdaSpolu";
+
+  PohonneLatky();
+  MotorovyOlej();
+  PrevodovyOlej();
+  Pneumatiky();
+  Udrzba();
+  Opravy();
+  MzdaOsadky();
+  PovinneZmluvnePoistenie();
+  DanMotorovehoVozidla();
+  CMRPoistenie();
+  HavarijnePoistenie();
+  RezijneNaklady();
+  Odpis();
+  Diety();
+
+  const vysledokPHL = parseFloat($("#idVypocitanyPHLjednotkove").text());
+  const vysledokMO = parseFloat($("#idVypocitanyMOjednotkove").text());
+  const vysledokPO = parseFloat($("#idVypocitanyPOjednotkove").text());
+  const vysledokPn = parseFloat($("#idVypocitanyPnjednotkove").text());
+  const vysledokRNU = parseFloat($("#idVypocitanyRNUjednotkove").text());
+  const vysledokRNO = parseFloat($("#idVypocitanyRNOjednotkove").text());
+  const vysledokMZD = parseFloat($("#idVypocitanyMZDjednotkove").text());
+  const vysledokPZP = parseFloat($("#idVypocitanyPZPjednotkove").text());
+  const vysledokDMV = parseFloat($("#idVypocitanyDMVjednotkove").text());
+  const vysledokCMR = parseFloat($("#idVypocitanyCMRjednotkove").text());
+  const vysledokHP = parseFloat($("#idVypocitanyHPjednotkove").text());
+  const vysledokRN = parseFloat($("#idVypocitanyRNjednotkove").text());
+  const vysledokODP = parseFloat($("#idVypocitanyODPjednotkove").text());
+  const vysledokVRD = parseFloat($("#idVypocitanyVRDjednotkove").text());
+
+  // vzorec na vypocet vysledku
+  const vysledokJednotkovaJazdaSpolu = parseFloat(
+    vysledokPHL +
+      vysledokMO +
+      vysledokPO +
+      vysledokPn +
+      vysledokRNU +
+      vysledokRNO +
+      vysledokMZD +
+      vysledokPZP +
+      vysledokDMV +
+      vysledokCMR +
+      vysledokHP +
+      vysledokRN +
+      vysledokODP +
+      vysledokVRD
+  );
+
+  // zapisanie vysledku
+
+  $(ID_JEDNOTKOVA_JAZDA).text(
+    Math.round(vysledokJednotkovaJazdaSpolu * 100) / 100
+  );
+}
+
+/** Rocne naklady na prestoj spolu ==============================================================================
+ * Pre vypocet potrebujeme:
+ * - vysledky rocnych fixnych a rocnych variabilnych nakladov na prestoj
+ * @returns vyska rocnych fixnych a rocnych variabilnych nakladov na prestoj spolu
+ */
+
+function RocnyPrestojSpolu() {
+  const ID_ROCNY_PRESTOJ = "#idVysledokRocnyPrestojSpolu";
+
+  MzdaOsadky();
+  PovinneZmluvnePoistenie();
+  DanMotorovehoVozidla();
+  CMRPoistenie();
+  HavarijnePoistenie();
+  RezijneNaklady();
+  Odpis();
+  Diety();
+
+  const vysledokMZD = parseFloat($("#idVypocitanyMZD2").text());
+  const vysledokPZP = parseFloat($("#idVypocitanyPZP2").text());
+  const vysledokDMV = parseFloat($("#idVypocitanyDMV2").text());
+  const vysledokCMR = parseFloat($("#idVypocitanyCMR2").text());
+  const vysledokHP = parseFloat($("#idVypocitanyHP2").text());
+  const vysledokRN = parseFloat($("#idVypocitanyRN2").text());
+  const vysledokODP = parseFloat($("#idVypocitanyODP2").text());
+  const vysledokVRD = parseFloat($("#idVypocitanyVRD2").text());
+
+  // vzorec na vypocet vysledku
+  const VysledokRocnyPrestojSpolu = parseFloat(
+    vysledokMZD +
+      vysledokPZP +
+      vysledokDMV +
+      vysledokCMR +
+      vysledokHP +
+      vysledokRN +
+      vysledokODP +
+      vysledokVRD
+  );
+
+  // zapisanie vysledku
+
+  $(ID_ROCNY_PRESTOJ).text(Math.round(VysledokRocnyPrestojSpolu * 100) / 100);
+}
+
+/** Jednotkove naklady na prestoj spolu ==============================================================================
+ * Pre vypocet potrebujeme:
+ * - vysledky jednotkovych fixnych a jednotkovych variabilnych nakladov na prestoj
+ * @returns vyska jednotkovych fixnych a jednotkovych variabilnych nakladov na prestoj spolu
+ */
+
+function JednotkovyPrestojSpolu() {
+  const ID_JEDNOTKOVY_PRESTOJ = "#idVysledokJednotkovyPrestojSpolu";
+
+  MzdaOsadky();
+  PovinneZmluvnePoistenie();
+  DanMotorovehoVozidla();
+  CMRPoistenie();
+  HavarijnePoistenie();
+  RezijneNaklady();
+  Odpis();
+  Diety();
+
+  const vysledokMZD = parseFloat($("#idVypocitanyMZDjednotkove2").text());
+  const vysledokPZP = parseFloat($("#idVypocitanyPZPjednotkove2").text());
+  const vysledokDMV = parseFloat($("#idVypocitanyDMVjednotkove2").text());
+  const vysledokCMR = parseFloat($("#idVypocitanyCMRjednotkove2").text());
+  const vysledokHP = parseFloat($("#idVypocitanyHPjednotkove2").text());
+  const vysledokRN = parseFloat($("#idVypocitanyRNjednotkove2").text());
+  const vysledokODP = parseFloat($("#idVypocitanyODPjednotkove2").text());
+  const vysledokVRD = parseFloat($("#idVypocitanyVRDjednotkove2").text());
+
+  // vzorec na vypocet vysledku
+  const VysledokJednotkovyPrestojSpolu = parseFloat(
+    vysledokMZD +
+      vysledokPZP +
+      vysledokDMV +
+      vysledokCMR +
+      vysledokHP +
+      vysledokRN +
+      vysledokODP +
+      vysledokVRD
+  );
+
+  // zapisanie vysledku
+
+  $(ID_JEDNOTKOVY_PRESTOJ).text(
+    Math.round(VysledokJednotkovyPrestojSpolu * 100) / 100
+  );
+}
+function SPOLU() {
+  RocnaJazdaSpolu();
+  JednotkovaJazdaSpolu();
+  RocnyPrestojSpolu();
+  JednotkovyPrestojSpolu();
 }
