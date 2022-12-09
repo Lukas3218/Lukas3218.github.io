@@ -122,6 +122,7 @@ function MotorovyOlej() {
  * - spotreba prevodoveho oleja
  * @returns naklady na prevodovy olej
  */
+
 function PrevodovyOlej() {
   const ID_ROCNA_JAZDA = "#idVypocitanyPO";
   const ID_JEDNOTKOVA_JAZDA = "#idVypocitanyPOjednotkove";
@@ -318,8 +319,8 @@ function MzdaOsadky() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(MZD * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(MZD * PPZR);
+  const vysledokRocnyJazda = parseFloat(MZD * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(MZD * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -377,8 +378,8 @@ function PovinneZmluvnePoistenie() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(PZP * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(PZP * PPZR);
+  const vysledokRocnyJazda = parseFloat(PZP * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(PZP * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -436,8 +437,8 @@ function DanMotorovehoVozidla() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(DMV * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(DMV * PPZR);
+  const vysledokRocnyJazda = parseFloat(DMV * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(DMV * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -495,8 +496,8 @@ function CMRPoistenie() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(CMR * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(CMR * PPZR);
+  const vysledokRocnyJazda = parseFloat(CMR * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(CMR * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -554,8 +555,8 @@ function HavarijnePoistenie() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(HP * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(HP * PPZR);
+  const vysledokRocnyJazda = parseFloat(HP * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(HP * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -613,8 +614,8 @@ function RezijneNaklady() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(RN * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(RN * PPZR);
+  const vysledokRocnyJazda = parseFloat(RN * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(RN * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -672,8 +673,8 @@ function Odpis() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(ODP * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(ODP * PPZR);
+  const vysledokRocnyJazda = parseFloat(ODP * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(ODP * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -731,8 +732,8 @@ function Diety() {
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = parseFloat(VRD * PRJV);
-  const vysledokRocnyPrestoj = parseFloat(VRD * PPZR);
+  const vysledokRocnyJazda = parseFloat(VRD * (PRJV/100));
+  const vysledokRocnyPrestoj = parseFloat(VRD * (PPZR/100));
   const vysledokJednotkovyJazda = parseFloat(vysledokRocnyJazda / RJV);
   const vysledokJednotkovyPrestoj = parseFloat(vysledokRocnyPrestoj / PZR);
 
@@ -815,6 +816,7 @@ function RocnaJazdaSpolu() {
  * - vysledky jednotkovych fixnych a jednotkovych variabilnych nakladov na jazdu
  * @returns vyska jednotkovych fixnych a jednotkovych variabilnych nakladov na jazdu spolu
  */
+
 function JednotkovaJazdaSpolu() {
   const ID_JEDNOTKOVA_JAZDA = "#idVysledokJednotkovaJazdaSpolu";
 

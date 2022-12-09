@@ -21,6 +21,8 @@ input[type="button"] {
   border-width: 10px;
   padding: 15px;
   text-align: left;
+  margin-top: 10px;
+  width: 42vw;
 }
 
 .ohranicenie2 {
@@ -113,6 +115,8 @@ main {
 /* Tabulka ================================================== */
 table {
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   /* table-layout: fixed; */
 }
 
@@ -143,7 +147,3 @@ td {
 .bunka-vysledku {
   width: 15%;
 }
-
-/* td:not(.poradove-cislo) {
-  width: 15%;
-} */
