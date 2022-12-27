@@ -869,7 +869,7 @@ function JednotkovaJazdaSpolu() {
   const vysledokVRD = UpravaVstupu($("#idVypocitanyVRDjednotkove").text());
 
   // vzorec na vypocet vysledku
-  const vysledokJednotkovaJazdaSpolu = parseFloat(
+  const vysledokJednotkovaJazdaSpolu = UpravaVstupu(
     vysledokPHL +
       vysledokMO +
       vysledokPO +
