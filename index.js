@@ -34,7 +34,7 @@ function jeVstupSpravny(idVstup, idError) {
  */
 function UpravaVstupu(hodnota) {
   if (isNaN(hodnota) === false) {
-    return hodnota;
+    return parseFloat(hodnota);
   }
 
   const hodnotaBezMedzery = hodnota.replaceAll(" ", "");
@@ -869,7 +869,7 @@ function JednotkovaJazdaSpolu() {
   const vysledokVRD = UpravaVstupu($("#idVypocitanyVRDjednotkove").text());
 
   // vzorec na vypocet vysledku
-  const vysledokJednotkovaJazdaSpolu = UpravaVstupu(
+  const vysledokJednotkovaJazdaSpolu = parseFloat(
     vysledokPHL +
       vysledokMO +
       vysledokPO +
