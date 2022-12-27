@@ -34,7 +34,7 @@ function jeVstupSpravny(idVstup, idError) {
  */
 function UpravaVstupu(hodnota) {
   if (isNaN(hodnota) === false) {
-    return parseFloat(hodnota);
+    return hodnota;
   }
 
   const hodnotaBezMedzery = hodnota.replaceAll(" ", "");
