@@ -1,6 +1,6 @@
 function jeVstupSpravny(idVstup, idError) {
   const hodnota = $(idVstup).val();
-  const upravenaHodnota = hodnota.replaceAll(" ", "");
+  const upravenaHodnota = hodnota.replaceAll(" ", "").replaceAll(",", ".");
 
   if (upravenaHodnota === "") {
     $(idError).text("Nezadane udaje");
@@ -33,16 +33,13 @@ function jeVstupSpravny(idVstup, idError) {
  * @returns cislo bez medzier a pripadne s desatinnou ciarkou
  */
 function UpravaVstupu(hodnota) {
-  console.log("UpravaVstupu");
-  console.log(hodnota);
   if (isNaN(hodnota) === false) {
     return hodnota;
   }
-  const upravenaHodnota = hodnota.replaceAll(" ", "");
-  console.log(upravenaHodnota);
-  console.log(parseFloat(upravenaHodnota));
 
-  return parseFloat(upravenaHodnota);
+  const hodnotaBezMedzery = hodnota.replaceAll(" ", "");
+  const hodnotaSBodkou = hodnotaBezMedzery.replaceAll(",", ".");
+  return parseFloat(hodnotaSBodkou);
 }
 
 /**POHONNE LATKY =========================================================================
