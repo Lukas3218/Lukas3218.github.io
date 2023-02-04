@@ -32,7 +32,7 @@ function jeVstupSpravny(idVstup, idError) {
  * @param hodnota nacitana ciselna hodnta z formularu
  * @returns cislo bez medzier a pripadne s desatinnou ciarkou
  */
-function UpravaVstupu(hodnota) {
+function UpravaHodnoty(hodnota) {
   if (isNaN(hodnota) === false) {
     return parseFloat(hodnota);
   }
@@ -68,13 +68,13 @@ function PohonneLatky() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PHL = UpravaVstupu($("#idPHL").val());
-  const SV = UpravaVstupu($("#idSV").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PHL = UpravaHodnoty($("#idPHL").val());
+  const SV = UpravaHodnoty($("#idSV").val());
 
   // vzorce na vypocet vysledku
-  const vysledokRocny = UpravaVstupu((SV * PHL * RJV) / 100);
-  const vysledokJednotkovy = UpravaVstupu(vysledokRocny / RJV);
+  const vysledokRocny = UpravaHodnoty((SV * PHL * RJV) / 100);
+  const vysledokJednotkovy = UpravaHodnoty(vysledokRocny / RJV);
 
   // zapisanie vysledku
   $(ID_ROCNA_JAZDA).text(Math.round(vysledokRocny * 100) / 100);
@@ -113,17 +113,17 @@ function MotorovyOlej() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const CMO = UpravaVstupu($("#idCMO").val());
-  const OMO = UpravaVstupu($("#idOMO").val());
-  const ZMO = UpravaVstupu($("#idZMO").val());
-  const SMO = UpravaVstupu($("#idSMO").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const CMO = UpravaHodnoty($("#idCMO").val());
+  const OMO = UpravaHodnoty($("#idOMO").val());
+  const ZMO = UpravaHodnoty($("#idZMO").val());
+  const SMO = UpravaHodnoty($("#idSMO").val());
 
   // vzorce na vypocet vysledku
-  const vysledokRocny = UpravaVstupu(
+  const vysledokRocny = UpravaHodnoty(
     (SMO * CMO * RJV) / 10000 + (OMO * CMO * RJV) / ZMO
   );
-  const vysledokJednotkovy = UpravaVstupu(vysledokRocny / RJV);
+  const vysledokJednotkovy = UpravaHodnoty(vysledokRocny / RJV);
 
   // zapisanie vysledku
   $(ID_ROCNA_JAZDA).text(Math.round(vysledokRocny * 100) / 100);
@@ -165,18 +165,18 @@ function PrevodovyOlej() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const ZP = UpravaVstupu($("#idZP").val());
-  const ZD = UpravaVstupu($("#idZD").val());
-  const SPO = UpravaVstupu($("#idSPO").val());
-  const OPO = UpravaVstupu($("#idOPO").val());
-  const CPO = UpravaVstupu($("#idCPO").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const ZP = UpravaHodnoty($("#idZP").val());
+  const ZD = UpravaHodnoty($("#idZD").val());
+  const SPO = UpravaHodnoty($("#idSPO").val());
+  const OPO = UpravaHodnoty($("#idOPO").val());
+  const CPO = UpravaHodnoty($("#idCPO").val());
 
   // vzorce na vypocet vysledku
-  const vysledokRocny = UpravaVstupu(
+  const vysledokRocny = UpravaHodnoty(
     (SPO * CPO * RJV) / ZP + (OPO * CPO * RJV) / ZD
   );
-  const vysledokJednotkovy = UpravaVstupu(vysledokRocny / RJV);
+  const vysledokJednotkovy = UpravaHodnoty(vysledokRocny / RJV);
 
   // zapisanie vysledku
 
@@ -212,14 +212,14 @@ function Pneumatiky() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PKP = UpravaVstupu($("#idPKP").val());
-  const CKP = UpravaVstupu($("#idCKP").val());
-  const ZPn = UpravaVstupu($("#idZPn").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PKP = UpravaHodnoty($("#idPKP").val());
+  const CKP = UpravaHodnoty($("#idCKP").val());
+  const ZPn = UpravaHodnoty($("#idZPn").val());
 
   // vzorce na vypocet vysledku
-  const vysledokRocny = UpravaVstupu((PKP * CKP * RJV) / ZPn);
-  const vysledokJednotkovy = UpravaVstupu(vysledokRocny / RJV);
+  const vysledokRocny = UpravaHodnoty((PKP * CKP * RJV) / ZPn);
+  const vysledokJednotkovy = UpravaHodnoty(vysledokRocny / RJV);
 
   // zapisanie vysledku
 
@@ -247,13 +247,13 @@ function Udrzba() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const RNU = UpravaVstupu($("#idRNU").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const RNU = UpravaHodnoty($("#idRNU").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocny = UpravaVstupu(RNU);
-  const vysledokJednotkovy = UpravaVstupu(vysledokRocny / RJV);
+  const vysledokRocny = UpravaHodnoty(RNU);
+  const vysledokJednotkovy = UpravaHodnoty(vysledokRocny / RJV);
 
   // zapisanie vysledku
 
@@ -281,13 +281,13 @@ function Opravy() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const RNO = UpravaVstupu($("#idRNO").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const RNO = UpravaHodnoty($("#idRNO").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocny = UpravaVstupu(RNO);
-  const vysledokJednotkovy = UpravaVstupu(vysledokRocny / RJV);
+  const vysledokRocny = UpravaHodnoty(RNO);
+  const vysledokJednotkovy = UpravaHodnoty(vysledokRocny / RJV);
 
   // zapisanie vysledku
 
@@ -329,18 +329,18 @@ function MzdaOsadky() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const MZD = UpravaVstupu($("#idMZD").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const MZD = UpravaHodnoty($("#idMZD").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(MZD * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(MZD * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(MZD * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(MZD * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -388,18 +388,18 @@ function PovinneZmluvnePoistenie() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const PZP = UpravaVstupu($("#idPZP").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const PZP = UpravaHodnoty($("#idPZP").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(PZP * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(PZP * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(PZP * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(PZP * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -447,18 +447,18 @@ function DanMotorovehoVozidla() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const DMV = UpravaVstupu($("#idDMV").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const DMV = UpravaHodnoty($("#idDMV").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(DMV * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(DMV * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(DMV * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(DMV * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -506,18 +506,18 @@ function CMRPoistenie() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const CMR = UpravaVstupu($("#idCMR").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const CMR = UpravaHodnoty($("#idCMR").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(CMR * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(CMR * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(CMR * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(CMR * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -565,18 +565,18 @@ function HavarijnePoistenie() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const HP = UpravaVstupu($("#idHP").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const HP = UpravaHodnoty($("#idHP").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(HP * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(HP * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(HP * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(HP * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -624,18 +624,18 @@ function RezijneNaklady() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const RN = UpravaVstupu($("#idRN").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const RN = UpravaHodnoty($("#idRN").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(RN * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(RN * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(RN * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(RN * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -683,18 +683,18 @@ function Odpis() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const ODP = UpravaVstupu($("#idODP").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const ODP = UpravaHodnoty($("#idODP").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(ODP * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(ODP * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(ODP * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(ODP * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -742,18 +742,18 @@ function Diety() {
     return;
   }
 
-  const RJV = UpravaVstupu($("#idRJV").val());
-  const PZR = UpravaVstupu($("#idPZR").val());
-  const PRJV = UpravaVstupu($("#idPRJV").val());
-  const PPZR = UpravaVstupu($("#idPPZR").val());
-  const VRD = UpravaVstupu($("#idVRD").val());
+  const RJV = UpravaHodnoty($("#idRJV").val());
+  const PZR = UpravaHodnoty($("#idPZR").val());
+  const PRJV = UpravaHodnoty($("#idPRJV").val());
+  const PPZR = UpravaHodnoty($("#idPPZR").val());
+  const VRD = UpravaHodnoty($("#idVRD").val());
 
   // vzorce na vypocet vysledku
 
-  const vysledokRocnyJazda = UpravaVstupu(VRD * (PRJV / 100));
-  const vysledokRocnyPrestoj = UpravaVstupu(VRD * (PPZR / 100));
-  const vysledokJednotkovyJazda = UpravaVstupu(vysledokRocnyJazda / RJV);
-  const vysledokJednotkovyPrestoj = UpravaVstupu(vysledokRocnyPrestoj / PZR);
+  const vysledokRocnyJazda = UpravaHodnoty(VRD * (PRJV / 100));
+  const vysledokRocnyPrestoj = UpravaHodnoty(VRD * (PPZR / 100));
+  const vysledokJednotkovyJazda = UpravaHodnoty(vysledokRocnyJazda / RJV);
+  const vysledokJednotkovyPrestoj = UpravaHodnoty(vysledokRocnyPrestoj / PZR);
 
   // zapisanie vysledku
 
@@ -791,23 +791,23 @@ function RocnaJazdaSpolu() {
   Odpis();
   Diety();
 
-  const vysledokPHL = UpravaVstupu($("#idVypocitanyPHL").text());
-  const vysledokMO = UpravaVstupu($("#idVypocitanyMO").text());
-  const vysledokPO = UpravaVstupu($("#idVypocitanyPO").text());
-  const vysledokPn = UpravaVstupu($("#idVypocitanyPn").text());
-  const vysledokRNU = UpravaVstupu($("#idVypocitanyRNU").text());
-  const vysledokRNO = UpravaVstupu($("#idVypocitanyRNO").text());
-  const vysledokMZD = UpravaVstupu($("#idVypocitanyMZD").text());
-  const vysledokPZP = UpravaVstupu($("#idVypocitanyPZP").text());
-  const vysledokDMV = UpravaVstupu($("#idVypocitanyDMV").text());
-  const vysledokCMR = UpravaVstupu($("#idVypocitanyCMR").text());
-  const vysledokHP = UpravaVstupu($("#idVypocitanyHP").text());
-  const vysledokRN = UpravaVstupu($("#idVypocitanyRN").text());
-  const vysledokODP = UpravaVstupu($("#idVypocitanyODP").text());
-  const vysledokVRD = UpravaVstupu($("#idVypocitanyVRD").text());
+  const vysledokPHL = UpravaHodnoty($("#idVypocitanyPHL").text());
+  const vysledokMO = UpravaHodnoty($("#idVypocitanyMO").text());
+  const vysledokPO = UpravaHodnoty($("#idVypocitanyPO").text());
+  const vysledokPn = UpravaHodnoty($("#idVypocitanyPn").text());
+  const vysledokRNU = UpravaHodnoty($("#idVypocitanyRNU").text());
+  const vysledokRNO = UpravaHodnoty($("#idVypocitanyRNO").text());
+  const vysledokMZD = UpravaHodnoty($("#idVypocitanyMZD").text());
+  const vysledokPZP = UpravaHodnoty($("#idVypocitanyPZP").text());
+  const vysledokDMV = UpravaHodnoty($("#idVypocitanyDMV").text());
+  const vysledokCMR = UpravaHodnoty($("#idVypocitanyCMR").text());
+  const vysledokHP = UpravaHodnoty($("#idVypocitanyHP").text());
+  const vysledokRN = UpravaHodnoty($("#idVypocitanyRN").text());
+  const vysledokODP = UpravaHodnoty($("#idVypocitanyODP").text());
+  const vysledokVRD = UpravaHodnoty($("#idVypocitanyVRD").text());
 
   // vzorec na vypocet vysledku
-  const vysledokRocnaJazdaSpolu = UpravaVstupu(
+  const vysledokRocnaJazdaSpolu = UpravaHodnoty(
     vysledokPHL +
       vysledokMO +
       vysledokPO +
@@ -853,23 +853,23 @@ function JednotkovaJazdaSpolu() {
   Odpis();
   Diety();
 
-  const vysledokPHL = UpravaVstupu($("#idVypocitanyPHLjednotkove").text());
-  const vysledokMO = UpravaVstupu($("#idVypocitanyMOjednotkove").text());
-  const vysledokPO = UpravaVstupu($("#idVypocitanyPOjednotkove").text());
-  const vysledokPn = UpravaVstupu($("#idVypocitanyPnjednotkove").text());
-  const vysledokRNU = UpravaVstupu($("#idVypocitanyRNUjednotkove").text());
-  const vysledokRNO = UpravaVstupu($("#idVypocitanyRNOjednotkove").text());
-  const vysledokMZD = UpravaVstupu($("#idVypocitanyMZDjednotkove").text());
-  const vysledokPZP = UpravaVstupu($("#idVypocitanyPZPjednotkove").text());
-  const vysledokDMV = UpravaVstupu($("#idVypocitanyDMVjednotkove").text());
-  const vysledokCMR = UpravaVstupu($("#idVypocitanyCMRjednotkove").text());
-  const vysledokHP = UpravaVstupu($("#idVypocitanyHPjednotkove").text());
-  const vysledokRN = UpravaVstupu($("#idVypocitanyRNjednotkove").text());
-  const vysledokODP = UpravaVstupu($("#idVypocitanyODPjednotkove").text());
-  const vysledokVRD = UpravaVstupu($("#idVypocitanyVRDjednotkove").text());
+  const vysledokPHL = UpravaHodnoty($("#idVypocitanyPHLjednotkove").text());
+  const vysledokMO = UpravaHodnoty($("#idVypocitanyMOjednotkove").text());
+  const vysledokPO = UpravaHodnoty($("#idVypocitanyPOjednotkove").text());
+  const vysledokPn = UpravaHodnoty($("#idVypocitanyPnjednotkove").text());
+  const vysledokRNU = UpravaHodnoty($("#idVypocitanyRNUjednotkove").text());
+  const vysledokRNO = UpravaHodnoty($("#idVypocitanyRNOjednotkove").text());
+  const vysledokMZD = UpravaHodnoty($("#idVypocitanyMZDjednotkove").text());
+  const vysledokPZP = UpravaHodnoty($("#idVypocitanyPZPjednotkove").text());
+  const vysledokDMV = UpravaHodnoty($("#idVypocitanyDMVjednotkove").text());
+  const vysledokCMR = UpravaHodnoty($("#idVypocitanyCMRjednotkove").text());
+  const vysledokHP = UpravaHodnoty($("#idVypocitanyHPjednotkove").text());
+  const vysledokRN = UpravaHodnoty($("#idVypocitanyRNjednotkove").text());
+  const vysledokODP = UpravaHodnoty($("#idVypocitanyODPjednotkove").text());
+  const vysledokVRD = UpravaHodnoty($("#idVypocitanyVRDjednotkove").text());
 
   // vzorec na vypocet vysledku
-  const vysledokJednotkovaJazdaSpolu = UpravaVstupu(
+  const vysledokJednotkovaJazdaSpolu = UpravaHodnoty(
     vysledokPHL +
       vysledokMO +
       vysledokPO +
@@ -911,17 +911,17 @@ function RocnyPrestojSpolu() {
   Odpis();
   Diety();
 
-  const vysledokMZD = UpravaVstupu($("#idVypocitanyMZD2").text());
-  const vysledokPZP = UpravaVstupu($("#idVypocitanyPZP2").text());
-  const vysledokDMV = UpravaVstupu($("#idVypocitanyDMV2").text());
-  const vysledokCMR = UpravaVstupu($("#idVypocitanyCMR2").text());
-  const vysledokHP = UpravaVstupu($("#idVypocitanyHP2").text());
-  const vysledokRN = UpravaVstupu($("#idVypocitanyRN2").text());
-  const vysledokODP = UpravaVstupu($("#idVypocitanyODP2").text());
-  const vysledokVRD = UpravaVstupu($("#idVypocitanyVRD2").text());
+  const vysledokMZD = UpravaHodnoty($("#idVypocitanyMZD2").text());
+  const vysledokPZP = UpravaHodnoty($("#idVypocitanyPZP2").text());
+  const vysledokDMV = UpravaHodnoty($("#idVypocitanyDMV2").text());
+  const vysledokCMR = UpravaHodnoty($("#idVypocitanyCMR2").text());
+  const vysledokHP = UpravaHodnoty($("#idVypocitanyHP2").text());
+  const vysledokRN = UpravaHodnoty($("#idVypocitanyRN2").text());
+  const vysledokODP = UpravaHodnoty($("#idVypocitanyODP2").text());
+  const vysledokVRD = UpravaHodnoty($("#idVypocitanyVRD2").text());
 
   // vzorec na vypocet vysledku
-  const VysledokRocnyPrestojSpolu = UpravaVstupu(
+  const VysledokRocnyPrestojSpolu = UpravaHodnoty(
     vysledokMZD +
       vysledokPZP +
       vysledokDMV +
@@ -955,17 +955,17 @@ function JednotkovyPrestojSpolu() {
   Odpis();
   Diety();
 
-  const vysledokMZD = UpravaVstupu($("#idVypocitanyMZDjednotkove2").text());
-  const vysledokPZP = UpravaVstupu($("#idVypocitanyPZPjednotkove2").text());
-  const vysledokDMV = UpravaVstupu($("#idVypocitanyDMVjednotkove2").text());
-  const vysledokCMR = UpravaVstupu($("#idVypocitanyCMRjednotkove2").text());
-  const vysledokHP = UpravaVstupu($("#idVypocitanyHPjednotkove2").text());
-  const vysledokRN = UpravaVstupu($("#idVypocitanyRNjednotkove2").text());
-  const vysledokODP = UpravaVstupu($("#idVypocitanyODPjednotkove2").text());
-  const vysledokVRD = UpravaVstupu($("#idVypocitanyVRDjednotkove2").text());
+  const vysledokMZD = UpravaHodnoty($("#idVypocitanyMZDjednotkove2").text());
+  const vysledokPZP = UpravaHodnoty($("#idVypocitanyPZPjednotkove2").text());
+  const vysledokDMV = UpravaHodnoty($("#idVypocitanyDMVjednotkove2").text());
+  const vysledokCMR = UpravaHodnoty($("#idVypocitanyCMRjednotkove2").text());
+  const vysledokHP = UpravaHodnoty($("#idVypocitanyHPjednotkove2").text());
+  const vysledokRN = UpravaHodnoty($("#idVypocitanyRNjednotkove2").text());
+  const vysledokODP = UpravaHodnoty($("#idVypocitanyODPjednotkove2").text());
+  const vysledokVRD = UpravaHodnoty($("#idVypocitanyVRDjednotkove2").text());
 
   // vzorec na vypocet vysledku
-  const VysledokJednotkovyPrestojSpolu = UpravaVstupu(
+  const VysledokJednotkovyPrestojSpolu = UpravaHodnoty(
     vysledokMZD +
       vysledokPZP +
       vysledokDMV +
