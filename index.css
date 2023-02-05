@@ -61,14 +61,9 @@ main {
   padding: 15px 2px 15px 10px;
   border: 2px solid lightgrey;
 }
-
+/* --------------------------------------------------------------- */
 .vstup-tlacidlo {
   margin-bottom: 25px;
-}
-
-.tlacidlo-vypocitaj {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
 }
 
 .vstup {
@@ -77,8 +72,8 @@ main {
   margin-bottom: 5px;
 }
 
-.chybny-vstup {
-  border: 2px solid red;
+.jednotka {
+  justify-self: center;
 }
 
 .error-sprava {
@@ -86,12 +81,17 @@ main {
   font-size: small;
 }
 
-.jednotka {
-  justify-self: center;
+.tlacidlo-vypocitaj {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
 }
 
 .medzera10 {
-  margin-top: 5px;
+  margin-top: 10px;
+}
+
+.chybny-vstup {
+  border: 2px solid red;
 }
 
 .nadpis {
