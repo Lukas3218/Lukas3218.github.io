@@ -3,19 +3,19 @@ function jeVstupSpravny(idVstup, idError) {
   const upravenaHodnota = hodnota.replaceAll(" ", "").replaceAll(",", ".");
 
   if (upravenaHodnota === "") {
-    $(idError).text("Nezadane udaje");
+    $(idError).text("Nezadané údaje");
     $(idVstup).addClass("chybny-vstup");
     return false;
   }
 
   if (isNaN(upravenaHodnota) === true) {
-    $(idError).text("Chybne zadane udaje");
+    $(idError).text("Chybne zadané údaje");
     $(idVstup).addClass("chybny-vstup");
     return false;
   }
 
   if (upravenaHodnota < 0) {
-    $(idError).text("Zadana zaporna hodnota");
+    $(idError).text("Zadaná záporná hodnota");
     $(idVstup).addClass("chybny-vstup");
     return false;
   }
@@ -35,11 +35,11 @@ function jeVstupSpravny(idVstup, idError) {
 function UpravaHodnoty(hodnota) {
   if (isNaN(hodnota) === false) {
     return parseFloat(hodnota);
+  } else {
+    const hodnotaBezMedzery = hodnota.replaceAll(" ", "");
+    const hodnotaSBodkou = hodnotaBezMedzery.replaceAll(",", ".");
+    return parseFloat(hodnotaSBodkou);
   }
-
-  const hodnotaBezMedzery = hodnota.replaceAll(" ", "");
-  const hodnotaSBodkou = hodnotaBezMedzery.replaceAll(",", ".");
-  return parseFloat(hodnotaSBodkou);
 }
 
 /**POHONNE LATKY =========================================================================
